@@ -3,16 +3,19 @@
 layout: home
 
 hero:
-  name: "Ming's Blog"
+  name: "Ming的博客"
   text: "A Personal Blog"
   tagline: 你走的每一步都算数
   actions:
     - theme: brand
-      text: Markdown 示例
-      link: /markdown-examples
+      text: HarmonyOS
+      link: /harmonyos/getstarted/introduce
     - theme: alt
-      text: API 示例
-      link: /api-examples
+      text: 前端
+      link: /frontend/
+    - theme: alt
+      text: GitHub
+      link: https://github.com/jm-wxr/a-personal-blog
 
 features:
   - title: Feature A

@@ -1,29 +1,24 @@
 import { defineConfig } from "vitepress";
+import nav from "./config/nav.mts";
+import sidebar from "./config/sidebar.mts";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "zh-CN",
-  title: "Ming's Blog",
+  title: "Ming的博客",
   description: "A Personal Blog",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: "首页", link: "/" },
-      { text: "示例", link: "/markdown-examples" },
-    ],
-
-    sidebar: [
-      {
-        text: "示例",
-        items: [
-          { text: "Markdown 示例", link: "/markdown-examples" },
-          { text: "Runtime API 示例", link: "/api-examples" },
-        ],
-      },
-    ],
-
+    nav,
+    sidebar,
+    outline: { label: "目录", level: [2, 3] },
     socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
+      { icon: "github", link: "https://github.com/jm-wxr/a-personal-blog" },
     ],
+    logo: {
+      src: "/image/logo.svg",
+      width: "24px",
+      height: "24px",
+    },
   },
 });
