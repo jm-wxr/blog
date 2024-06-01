@@ -2,11 +2,11 @@
 outline: deep
 ---
 
-# Runtime API Examples
+# Runtime API 示例
 
-This page demonstrates usage of some of the runtime APIs provided by VitePress.
+这个页面演示了一些由 VitePress 提供的运行时 api 的用法。
 
-The main `useData()` API can be used to access site, theme, and page data for the current page. It works in both `.md` and `.vue` files:
+主要的 API `useData()` 可用于访问当前页面的站点、主题和页面数据。这适用于 `.md` 和 `.vue` 两个文件：
 
 ```md
 <script setup>
@@ -36,13 +36,13 @@ import { useData } from 'vitepress'
 const { site, theme, page, frontmatter } = useData()
 </script>
 
-## Results
+## 结果
 
-### Theme Data
+### Theme 数据
 
 <pre>{{ theme }}</pre>
 
-### Page Data
+### Page 数据
 
 <pre>{{ page }}</pre>
 
@@ -50,6 +50,6 @@ const { site, theme, page, frontmatter } = useData()
 
 <pre>{{ frontmatter }}</pre>
 
-## More
+## 更多
 
-Check out the documentation for the [full list of runtime APIs](https://vitepress.dev/reference/runtime-api#usedata).
+查看文档以获得[运行时 api 的完整列表](https://vitepress.dev/reference/runtime-api#usedata).

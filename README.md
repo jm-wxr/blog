@@ -9,13 +9,15 @@
 ## **环境**
 
 - node >= v18
-- pnpm | yarn
+- pnpm
 
-## **启动命令**
+## **安装依赖**
 
 ```bash
-yarn docs:dev
+pnpm install
 ```
+
+## **启动命令**
 
 ```bash
 pnpm docs:dev

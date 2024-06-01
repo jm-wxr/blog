@@ -20,5 +20,16 @@ export default defineConfig({
       width: "24px",
       height: "24px",
     },
+    docFooter: {
+      prev: "上一篇",
+      next: "下一篇",
+    },
+  },
+  markdown: {
+    container: {
+      detailsLabel: "显示代码",
+      tipLabel: "提示",
+      infoLabel: "参考",
+    },
   },
 });

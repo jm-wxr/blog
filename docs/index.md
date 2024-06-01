@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: HarmonyOS
-      link: /harmonyos/getstarted/introduce
+      link: /harmonyos/
     - theme: alt
       text: 前端
       link: /frontend/

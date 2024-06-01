@@ -1,20 +1,8 @@
 export default {
-  "/examples/": getExamples(),
+  "/misc/": getMisc(),
   "/harmonyos/": getHarmonyOS(),
   "/frontend/": getFrontend(),
 };
-
-function getExamples() {
-  return [
-    {
-      text: "示例",
-      items: [
-        { text: "Markdown 示例", link: "/examples/markdown-examples" },
-        { text: "Runtime API 示例", link: "/examples/api-examples" },
-      ],
-    },
-  ];
-}
 
 function getHarmonyOS() {
   return [
@@ -46,7 +34,49 @@ function getFrontend() {
   return [
     {
       text: "开始",
-      items: [],
+      collapsed: true,
+      items: [
+        {
+          text: "学习路线",
+          link: "/frontend/getstarted/roadmap",
+        },
+        {
+          text: "官方网站汇总",
+          link: "/frontend/getstarted/website",
+        },
+        {
+          text: "VS Code使用",
+          link: "/frontend/getstarted/vscode",
+        },
+      ],
     },
+    {
+      text: "Vue3",
+      collapsed: true,
+      items: [
+        {
+          text: "项目准备",
+          link: "/frontend/vue3/project-prepare",
+        },
+        {
+          text: "项目实战",
+          link: "/frontend/vue3/project",
+        },
+      ],
+    },
+  ];
+}
+
+function getMisc() {
+  return [
+    {
+      text: "示例",
+      collapsed: true,
+      items: [
+        { text: "Markdown 示例", link: "/misc/examples/markdown-examples" },
+        { text: "Runtime API 示例", link: "/misc/examples/api-examples" },
+      ],
+    },
+    { text: "个人博客搭建", link: "/misc/blog-build" },
   ];
 }
