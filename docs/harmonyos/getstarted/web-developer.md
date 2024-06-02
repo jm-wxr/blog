@@ -30,7 +30,7 @@ HarmonyOS 采用的 UI 框架是方舟开发框架（ArkUI 框架），方舟开
 
 ### 设置文本样式、文本对齐方式
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5cf222fb-4229-4c3c-b398-2abd7f5f5847/59d40cf6-390c-4e55-8e7a-c0884178e07f/Untitled.png)
+<image src="/image/article/01.png" class="show-img" />
 
 对于 css 使用`font`和`color`设置文字样式、大小等，Text 组件（ArkUI 中构建 UI 的最小单位称为组件）的[文本通用属性](https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md)可以达到同样的效果。
 
@@ -58,7 +58,7 @@ Text("蓝色文字")
 
 ### 设置尺寸大小和背景颜色
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5cf222fb-4229-4c3c-b398-2abd7f5f5847/573c338c-d45a-4ede-96dd-24378eb771b2/Untitled.png)
+<image src="/image/article/02.png" class="show-img" />
 
 使用`width`和`height`属性来设置组件的固定宽高。如果要约束组件的宽高，请使用`constraintSize`属性来实现。
 
@@ -88,7 +88,7 @@ Flex() {
 
 ### 设置对齐方式
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5cf222fb-4229-4c3c-b398-2abd7f5f5847/1c8b9a61-94d9-4818-9613-0d4b9328120e/Untitled.png)
+<image src="/image/article/03.png" class="show-img" />
 
 在 ArkUI 中，通过给 Flex 容器传入参数`justifyContent`和`alignItems`来实现子组件的对齐格式。对于 Row 和 Column 容器（线性布局容器），设置其属性`justifyContent`和`alignItems`来实现。
 
@@ -120,3 +120,9 @@ Flex({
 ## 组件位置和大小
 
 ### 设置绝对位置
+
+<style lang="scss" scoped>
+.show-img {
+  margin: 10px 0;
+}
+</style>

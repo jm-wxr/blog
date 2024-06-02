@@ -37,3 +37,4 @@
 - [Vue3 设计理念](https://vue3js.cn/vue-composition/)
 - [基于 Vue3 的 UI 库](https://ui-libs.vercel.app/)
 - [Shiki 官网](https://shiki.tmrs.site/)
+- [MiniSearch](https://lucaong.github.io/minisearch/)

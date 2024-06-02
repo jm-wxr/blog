@@ -16,13 +16,23 @@ export default defineConfig({
       { icon: "github", link: "https://github.com/jm-wxr/a-personal-blog" },
     ],
     logo: {
-      src: "/image/logo.svg",
+      src: "/image/home/logo.svg",
       width: "24px",
       height: "24px",
     },
     docFooter: {
       prev: "上一篇",
       next: "下一篇",
+    },
+    search: {
+      provider: 'local',
+    },
+    lastUpdated: {
+      text: '最后更新时间',
+      formatOptions: {
+        dateStyle: 'full',
+        timeStyle: 'medium'
+      }
     },
   },
   markdown: {

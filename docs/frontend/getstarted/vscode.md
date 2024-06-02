@@ -442,3 +442,11 @@
 ```
 
 :::
+
+## 字体推荐
+
+[JetBrains Mono](https://github.com/JetBrains/JetBrainsMono)：由JetBrains公司专为开发者设计的一款等宽编程字体
+
+::: info
+[最适合程序员的编程字体，好看、优雅！](https://mp.weixin.qq.com/s/_1UrM0QYCpiOakTwosbAYA)
+:::
