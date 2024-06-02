@@ -7,7 +7,7 @@ export default defineConfig({
   lang: "zh-CN",
   title: "Ming的博客",
   description: "A Personal Blog",
-  base: '/blog/',
+  base: "/blog/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav,
@@ -26,19 +26,23 @@ export default defineConfig({
       next: "下一篇",
     },
     search: {
-      provider: 'local',
+      provider: "local",
     },
     lastUpdated: {
-      text: '最后更新时间',
+      text: "最后更新时间",
       formatOptions: {
-        dateStyle: 'full',
-        timeStyle: 'medium'
-      }
+        dateStyle: "full",
+        timeStyle: "medium",
+      },
     },
     footer: {
-      message: '随便写点啥',
-      copyright: '版权所有 @ 2024.6.2 jm-wxr'
-    }
+      message: "随便写点啥",
+      copyright: "版权所有 @ 2024.6.2 jm-wxr",
+    },
+    editLink: {
+      pattern: "https://github.com/jm-wxr/blog/edit/main/docs/:path",
+      text: "有错误？帮我修正",
+    },
   },
   markdown: {
     container: {
