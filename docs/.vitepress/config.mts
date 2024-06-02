@@ -7,6 +7,7 @@ export default defineConfig({
   lang: "zh-CN",
   title: "Ming的博客",
   description: "A Personal Blog",
+  base: '/blog/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav,
@@ -34,6 +35,10 @@ export default defineConfig({
         timeStyle: 'medium'
       }
     },
+    footer: {
+      message: '随便写点啥',
+      copyright: '版权所有 @ 2024.6.2 jm-wxr'
+    }
   },
   markdown: {
     container: {
