@@ -8,6 +8,21 @@ export default defineConfig({
   title: "Ming的博客",
   description: "A Personal Blog",
   base: "/blog/",
+  head: [
+    [
+      "script",
+      {},
+      `
+      window._hmt = window._hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b82696896669a6089cd44666b1ac7c7c";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+      `,
+    ],
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav,
