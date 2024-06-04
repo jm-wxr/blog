@@ -1,7 +1,7 @@
 <!-- Comment.vue -->
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
-import { inBrowser } from "vitepress";
+import {onMounted, ref} from "vue";
+import {inBrowser} from "vitepress";
 import 'gitalk/dist/gitalk.css'
 import Gitalk from "gitalk";
 
@@ -11,6 +11,7 @@ const init = () => {
   if (inBrowser) {
     const wrap = document.createElement("div");
     wrap.setAttribute("id", "gitalk-container");
+    wrap.setAttribute("class", "gt-container");
     commentRef.value?.appendChild(wrap); // 把组件加入到想加载的地方 // querySelector的节点可自己根据自己想加载的地方设置
     const gitalk = new Gitalk({
       clientID: "Ov23lip8OJQfB9mDVWVD", // clientID
@@ -33,5 +34,84 @@ onMounted(() => {
 </script>
 <template>
   <div ref="commentRef"></div>
-<!--  <div id="gitalk-container"></div>-->
+  <!--  <div id="gitalk-container" class="gt-container"></div>-->
 </template>
+
+<style lang="scss" scoped>
+$gt-color-main: #3451b2; // gitalk 主题色
+$gt-color-btn: #ffffff; // 按钮文字颜色
+
+:deep(.gt-container) {
+  a {
+    color: $gt-color-main;
+
+    &:hover {
+      color: lighten($gt-color-main, 20%);
+      border-color: lighten($gt-color-main, 20%);
+    }
+  }
+
+  .gt-svg svg {
+    fill: $gt-color-main;
+  }
+
+  .gt-spinner::before {
+    border-color: $gt-color-btn;
+    border-top-color: $gt-color-main;
+  }
+
+  .gt-btn {
+    background-color: $gt-color-main;
+    border-color: $gt-color-main;
+    color: $gt-color-btn;
+
+    &-login {
+      &:hover {
+        background-color: lighten($gt-color-main, 20%);
+        border-color: lighten($gt-color-main, 20%);
+      }
+    }
+
+    &-preview {
+      background-color: $gt-color-btn;
+      color: $gt-color-main;
+
+      &:hover {
+        background-color: darken($gt-color-btn, 5%);
+        border-color: lighten($gt-color-main, 20%);
+      }
+    }
+
+    &-public {
+      &:hover {
+        background-color: lighten($gt-color-main, 20%);
+        border-color: lighten($gt-color-main, 20%);
+      }
+    }
+  }
+
+  .gt-link {
+    border-bottom-color: $gt-color-main;
+  }
+
+  .gt-user .is--poping .gt-ico svg {
+    fill: $gt-color-main;
+  }
+
+  .gt-popup .gt-action.is--active:before {
+    background: $gt-color-main;
+  }
+
+  .gt-header-controls-tip {
+    color: $gt-color-main;
+  }
+
+  .gt-comment-username {
+    color: $gt-color-main;
+  }
+
+  .gt-header-textarea {
+    color: #000;
+  }
+}
+</style>

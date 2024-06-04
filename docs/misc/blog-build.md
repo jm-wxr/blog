@@ -23,12 +23,13 @@ http://www.qianduan8.com/2072.html
 
 [gitalk](https://github.com/gitalk/gitalk)
 
+[waline](https://github.com/walinejs/waline)
+
 [给自己的网站添加访问量统计(busuanzi)](https://richard-docs.netlify.app/blogs/b-026)
 
 [busuanzi](https://ibruce.info/2015/04/04/busuanzi/)
 
 [为 vitepress 静态网站增加访问统计代码(百度统计)](https://blog.csdn.net/hjingfeng/article/details/135763120)
-
 
 [百度统计](https://tongji.baidu.com/main/homepage/10000631241/homepage/index)
 :::
