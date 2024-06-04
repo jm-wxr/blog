@@ -1,11 +1,11 @@
-import { defineConfig } from "vitepress";
+import {defineConfig} from "vitepress";
 import nav from "./config/nav.mts";
 import sidebar from "./config/sidebar.mts";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "zh-CN",
-  title: "Ming的博客",
+  title: "JingMing的主页",
   description: "A Personal Blog",
   base: "/blog/",
   head: [
@@ -27,9 +27,9 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav,
     sidebar,
-    outline: { label: "目录", level: [2, 3] },
+    outline: {label: "目录", level: [2, 3]},
     socialLinks: [
-      { icon: "github", link: "https://github.com/jm-wxr/a-personal-blog" },
+      {icon: "github", link: "https://github.com/jm-wxr/a-personal-blog"},
     ],
     logo: {
       src: "/image/home/logo.svg",
@@ -65,5 +65,6 @@ export default defineConfig({
       tipLabel: "提示",
       infoLabel: "参考",
     },
+    lineNumbers: true
   },
 });
