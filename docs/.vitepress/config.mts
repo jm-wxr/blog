@@ -1,4 +1,4 @@
-import {defineConfig} from "vitepress";
+import {defineConfig, MarkdownRenderer} from "vitepress";
 import nav from "./config/nav.mts";
 import sidebar from "./config/sidebar.mts";
 
@@ -22,6 +22,9 @@ export default defineConfig({
       })();
       `,
     ],
+    // 大图预览插件资源
+    ['link', {rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css'}],
+    ['script', {src: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js'}],
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -42,6 +45,24 @@ export default defineConfig({
     },
     search: {
       provider: "local",
+      options: {
+        translations: {
+          button: {
+            buttonText: '搜索文档',
+            buttonAriaLabel: '搜索文档'
+          },
+          modal: {
+            displayDetails: '展开详情',
+            noResultsText: '无法找到相关结果',
+            resetButtonTitle: '清除查询条件',
+            footer: {
+              selectText: '选择',
+              navigateText: '切换',
+              closeText: '关闭'
+            },
+          }
+        }
+      }
     },
     lastUpdated: {
       text: "最后更新时间",
@@ -52,12 +73,13 @@ export default defineConfig({
     },
     footer: {
       message: "随便写点啥",
-      copyright: "版权所有 @ 2024.6.2 jm-wxr",
+      copyright: `版权所有 © 2024-2022-${new Date().getFullYear()} jm-wxr`,
     },
     editLink: {
       pattern: "https://github.com/jm-wxr/blog/edit/main/docs/:path",
       text: "有错误？帮我修正",
     },
+    returnToTopLabel: '返回顶部',
   },
   markdown: {
     container: {
@@ -65,6 +87,28 @@ export default defineConfig({
       tipLabel: "提示",
       infoLabel: "参考",
     },
-    lineNumbers: true
+    lineNumbers: true,
+    theme: 'material-theme-palenight',
+    config: (md) => {
+      // 大图预览插件配置
+      md.use(MdCustomAttrPlugin, 'image', {'data-fancybox': 'gallery'})
+    },
   },
 });
+
+// markdown 添加自定义属性(特定的type)
+function MdCustomAttrPlugin(md: MarkdownRenderer, type: string, mdOptions: object) {
+  const defaultRenderer = md.renderer.rules[type]
+
+  if (defaultRenderer) {
+    md.renderer.rules[type] = (tokens, idx, options, env, self) => {
+      const token = tokens[idx]
+      if (mdOptions) {
+        for (let i in mdOptions) {
+          token.attrSet(i, mdOptions[i])
+        }
+      }
+      return defaultRenderer(tokens, idx, options, env, self)
+    }
+  }
+}
