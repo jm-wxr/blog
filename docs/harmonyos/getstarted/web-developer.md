@@ -20,7 +20,7 @@ HarmonyOS 采用的 UI 框架是方舟开发框架（ArkUI 框架），方舟开
 
 - 以下示例均假设将所有的 HTML 元素的 CSS 盒子模型都设置为`border-box`，以便与 ArkUI 保持一致
   ```css
-   {
+  * {
     box-sizing: border-box;
   }
   ```
@@ -36,14 +36,16 @@ HarmonyOS 采用的 UI 框架是方舟开发框架（ArkUI 框架），方舟开
 
 对于 css 使用`text-align`来对齐文本，Text 组件的`textAlign`属性可以达到同样的效果。
 
-```css{4-6}
+```html{5-7}
 <p class="blue-text">蓝色文字</p>
 
+<style>
 .blue-text {
   font: 900 24px Tahoma;
   color: blue;
   text-align: center;
 }
+</style>
 ```
 
 ```tsx {2-7}
@@ -51,7 +53,7 @@ Text("蓝色文字")
   .fontSize(24)
   .fontColor(Color.Blue)
   // 当前仅支持’HarmonyOS Sans’字体
-  .fontFamily("HarmonyOS Sans")
+  .fontFamily("Tahoma")
   .fontWeight(FontWeight.Bolder)
   .textAlign(TextAlign.Center);
 ```
@@ -62,18 +64,20 @@ Text("蓝色文字")
 
 使用`width`和`height`属性来设置组件的固定宽高。如果要约束组件的宽高，请使用`constraintSize`属性来实现。
 
-使用`backgroundColor` 属性来设置背景颜色。对于渐变颜色，可以使用`linearGradient` 属性。
+使用`backgroundColor` 属性来设置背景颜色。
 
-在 HTML 和 ArkUI 的 Flex 布局中，子元素或子组件默认锚定在左上角。更多布局见[布局概述](https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/ui/arkts-layout-development-overview.md)
+在CSS和ArkUI的Flex布局（弹性布局）中，子元素或子组件默认锚定在左上角。
 
-```css{4-6}
+```html{5-7}
 <div class="red-box">这是个红色盒子</div>
 
+<style>
 .red-box {
   width: 300px;
   height: 180px;
   background-color: red;
 }
+</style>
 ```
 
 ```tsx{4-6}
@@ -83,18 +87,50 @@ Flex() {
 .width(300)
 .height(180)
 .backgroundColor(Color.Red)
-// .linearGradient({direction: GradientDirection.Right,colors: [[Color.Green, 0], [Color.Red, 1]]})
+```
+
+### 设置线性渐变
+
+![image](/image/article/04.png)
+对于渐变颜色，可以使用`linearGradient` 属性，其中`angle`为渐变角度（默认值为180，垂直向下），`colors`为数组，每个数组项表示某百分比位置处的渐变色颜色。详细设置见[颜色渐变](https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/reference/apis-arkui/arkui-ts/ts-universal-attributes-gradient-color.md)
+
+对于CSS的row方向的Flex布局，在ArkUI可以用Row布局（线性布局）来代替，子组件默认侧轴居中。
+
+```html{8-11}
+
+<div class="red-box">这是个渐变盒子</div>
+
+<style>
+.red-box {
+  width: 300px;
+  height: 180px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: linear-gradient(180deg, red, yellow 80%);
+}
+</style>
+```
+
+```tsx{1,3,6}
+Row() {
+  Text('这是个渐变盒子')
+}
+.width(300)
+.height(180)
+.linearGradient({ angle: 180, colors: [[Color.Red, 0],[Color.Yellow, 0.8]] })
 ```
 
 ### 设置对齐方式
 
 ![image](/image/article/03.png)
 
-在 ArkUI 中，通过给 Flex 容器传入参数`justifyContent`和`alignItems`来实现子组件的对齐格式。对于 Row 和 Column 容器（线性布局容器），设置其属性`justifyContent`和`alignItems`来实现。
+在 ArkUI 中，通过给 Flex 容器（弹性布局容器）传入参数`justifyContent`和`alignItems`来实现子组件的对齐格式。对于 Row 和 Column 容器（线性布局容器），设置其属性`justifyContent`和`alignItems`来实现。更多布局见[布局概述](https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/ui/arkts-layout-development-overview.md)
 
-```css{7-9}
+```html{8-10}
 <div class="red-box">这是个红色盒子</div>
 
+<style>
 .red-box {
   width: 300px;
   height: 180px;
@@ -103,6 +139,7 @@ Flex() {
   align-items: center;
   justify-content: center;
 }
+</style>
 ```
 
 ```tsx{2-3}
